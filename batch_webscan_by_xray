@@ -2,7 +2,7 @@ import os
 import argparse
 
 
-parser = argparse.ArgumentParser(description="domain_search_by_xray.py")
+parser = argparse.ArgumentParser(description="batch_webscan_by_xray.py")
 parser.add_argument("-f", "--file", type=str, metavar="file", help="txt目标路径 eg:\"/XX/XX/xx.txt\"")
 args = parser.parse_args()
 # 扫描
@@ -14,7 +14,7 @@ def get_url(txt):
 
 # 报告
 def do_scan(targeturl):
-    scan_command=r"./xray sd --target {} --text-output domain_output_{}.text".format(targeturl,targeturl)
+    scan_command=r"./xray webscan --url {} --html-output webscan_output_{}.html".format(targeturl,targeturl)
     print(scan_command)
     os.system(scan_command)
     return
